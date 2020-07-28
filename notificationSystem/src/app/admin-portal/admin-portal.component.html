@@ -1,0 +1,44 @@
+<h1>Notification Portal</h1>
+
+<table>
+    <tr>
+        <th>Event</th>
+        <th>Content</th>
+      
+    </tr>
+    <tr>
+        <td> <input type="text" list="events" [(ngModel)]="event" >  
+            <datalist id="events">
+            <option value="Event">Event/Celebration</option>
+            <option value="UrgentHelp">Urgent Help</option>
+            <option value="Holiday">Holiday</option>
+            <option value="NagarroNews">Nagarro News</option>
+            <option value="NewPolicy">New Policy</option>
+        </datalist></td>
+        <td>
+            <input class="content" [(ngModel)]="content" type="text">
+        </td>
+    </tr>
+ <button type="submit" (click)=SendNotification()>Submit</button>
+</table>
+
+<hr>
+<div class="container">
+    <h3>Notifications</h3>
+<button type="submit" (click)=showNotifications() >Show Notifications</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Content</th>
+            <th>Button</th>
+        </tr>
+      
+        <tr *ngFor="let n of noti">
+            <td>{{n.id}}</td>
+            <td>{{n.type}}</td>
+            <td>{{n.content}}</td>
+            <td><button class="b2" (click)=delete(n)>Clear</button></td>
+        </tr>
+    </table>
+</div>
